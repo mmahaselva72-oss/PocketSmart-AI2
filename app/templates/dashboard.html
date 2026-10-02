@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page">
+<h2>Your Dashboard</h2>
+<div class="grid">
+<a class="card" href="/home-planner">🏠 New Home Plan</a>
+<a class="card" href="/party-planner">🎉 New Party Plan</a>
+<a class="card" href="/jewelry-planner">💎 New Jewelry Plan</a>
+</div>
+<h3>Recent recommendations</h3>
+{% for item in history %}
+<div class="history-item"><b>{{ item.planner|title }}</b> · {{ item.created_at }}</div>
+{% else %}
+<p>No recommendations yet. Start with a planner above.</p>
+{% endfor %}
+</section>
+{% endblock %}

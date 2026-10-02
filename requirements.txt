@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+jinja2
+python-multipart
+python-dotenv
+sqlalchemy
+python-jose[cryptography]
+argon2-cffi
+itsdangerous
+email-validator
+httpx
+google-generativeai
+pytest

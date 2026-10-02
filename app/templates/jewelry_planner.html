@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-wrap wide">
+<h2>💎 Jewelry Budget Planner</h2>
+<p>Describe the occasion and style. You can optionally upload an outfit image.</p>
+<form class="planner-form" data-endpoint="/api/generate-jewelry" enctype="multipart/form-data">
+<input name="budget" type="number" min="1" placeholder="Budget ₹" required>
+<input name="occasion" placeholder="Occasion (wedding, party, etc.)" required>
+<select name="style"><option>Elegant</option><option>Traditional</option><option>Minimal</option><option>Contemporary</option></select>
+<textarea name="outfit_description" placeholder="Describe your outfit"></textarea>
+<input name="outfit_image" type="file" accept="image/*">
+<button class="button">Generate Recommendations</button>
+</form>
+<div class="results"></div>
+</div>
+{% endblock %}

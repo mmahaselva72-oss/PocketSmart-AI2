@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-wrap wide">
+<h2>🎉 Party Budget Planner</h2>
+<p>Plan a memorable event without losing control of the budget.</p>
+<form class="planner-form" data-endpoint="/api/generate-party">
+<input name="budget" type="number" min="1" placeholder="Total budget ₹" required>
+<input name="guests" type="number" min="1" placeholder="Number of guests" required>
+<select name="event_type"><option>Birthday</option><option>Wedding</option><option>Corporate</option><option>Family Event</option></select>
+<input name="venue" placeholder="Venue preference">
+<button class="button">Generate Recommendations</button>
+</form>
+<div class="results"></div>
+</div>
+{% endblock %}

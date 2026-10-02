@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page">
+<h2>Recommendation History</h2>
+{% for item in history %}
+<div class="history-item"><b>{{ item.planner|title }}</b><br><small>{{ item.created_at }}</small></div>
+{% else %}
+<p>No history available. Log in and create a recommendation.</p>
+{% endfor %}
+</section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-wrap wide">
+<h2>🏠 Home Interior Planner</h2>
+<p>Tell PocketSmart what you want to plan and your maximum budget.</p>
+<form class="planner-form" data-endpoint="/api/generate-home">
+<input name="budget" type="number" min="1" placeholder="Total budget ₹" required>
+<input name="rooms" placeholder="Rooms (e.g. living room, bedroom)" required>
+<input name="items" placeholder="Items (e.g. lights, fan, table)" required>
+<select name="style"><option>Modern</option><option>Minimal</option><option>Traditional</option><option>Luxury</option></select>
+<button class="button">Generate Recommendations</button>
+</form>
+<div class="results"></div>
+</div>
+{% endblock %}

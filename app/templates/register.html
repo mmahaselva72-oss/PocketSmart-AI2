@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-wrap">
+<h2>Create your account</h2>
+<form id="registerForm">
+<input name="name" placeholder="Full name" required>
+<input name="email" type="email" placeholder="Email" required>
+<input name="password" type="password" placeholder="Password" minlength="6" required>
+<button class="button">Register</button>
+<p id="message"></p>
+</form>
+</div>
+<script>
+document.getElementById("registerForm").addEventListener("submit", async e => {
+ e.preventDefault();
+ const body = Object.fromEntries(new FormData(e.target));
+ const r = await fetch("/api/register",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+ const data = await r.json();
+ document.getElementById("message").textContent = data.message || data.detail;
+ if(r.ok) setTimeout(()=>location.href="/login",800);
+});
+</script>
+{% endblock %}

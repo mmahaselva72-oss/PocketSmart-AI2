@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-wrap">
+<h2>Welcome back</h2>
+<form id="loginForm">
+<input name="email" type="email" placeholder="Email" required>
+<input name="password" type="password" placeholder="Password" required>
+<button class="button">Login</button>
+<p id="message"></p>
+</form>
+</div>
+<script>
+document.getElementById("loginForm").addEventListener("submit", async e => {
+ e.preventDefault();
+ const body = Object.fromEntries(new FormData(e.target));
+ const r = await fetch("/api/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+ const data = await r.json();
+ document.getElementById("message").textContent = data.message || data.detail;
+ if(r.ok) location.href="/dashboard";
+});
+</script>
+{% endblock %}
