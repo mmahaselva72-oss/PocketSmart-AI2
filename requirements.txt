@@ -9,5 +9,5 @@ argon2-cffi
 itsdangerous
 email-validator
 httpx
-google-generativeai
+google-genai
 pytest
